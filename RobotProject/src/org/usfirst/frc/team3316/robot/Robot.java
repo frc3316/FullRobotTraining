@@ -2,7 +2,11 @@
 package org.usfirst.frc.team3316.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -18,16 +22,21 @@ public class Robot extends IterativeRobot {
     final String customAuto = "My Auto";
     String autoSelected;
     SendableChooser chooser;
+    
+    Joystick rightly,leftly;
+    
+    DriveTrain dt;
 	
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-        chooser = new SendableChooser();
-        chooser.addDefault("Default Auto", defaultAuto);
-        chooser.addObject("My Auto", customAuto);
-        SmartDashboard.putData("Auto choices", chooser);
+
+    	 dt = new DriveTrain();
+         rightly = new Joystick(0);
+         leftly = new Joystick(1);
+       
     }
     
 	/**
@@ -64,8 +73,14 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+    	
+        double rgtY = -(rightly.getY());
+        double lftY = -(leftly.getY());
         
+        dt.setMotors(lftY, rgtY);
     }
+    
+	
     
     /**
      * This function is called periodically during test mode
