@@ -3,11 +3,13 @@ package org.usfirst.frc.team3316.robot;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -26,6 +28,8 @@ public class Robot extends IterativeRobot {
 	Joystick xbox360controller;
 	double axis;
 	boolean ButtonHeld;
+	JoystickButton intakeBTN;
+	JoystickButton outtakeBTN;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -35,6 +39,8 @@ public class Robot extends IterativeRobot {
         ds = new DoubleSolenoid(4, 5);
         button = new AnalogInput(3);
         xbox360controller = new Joystick(2);
+        intakeBTN = new JoystickButton(xbox360controller, 2);
+        outtakeBTN = new JoystickButton(xbox360controller, 1);
         
     }
     
@@ -64,6 +70,7 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         axis = -xbox360controller.getRawAxis(1);
         ButtonHeld = button.getAverageVoltage() >= 2500;
+        
         if(ButtonHeld && axis < 0)
         {
         	sc.set(axis);
@@ -72,7 +79,14 @@ public class Robot extends IterativeRobot {
         {
         	sc.set(axis);
         }
-        	
+        if(ds.get() != Value.kReverse && intakeBTN.get()) 
+        {
+        	ds.set(Value.kReverse);
+        }
+        else if(ds.get() != Value.kForward && outtakeBTN.get())
+        {
+        	ds.set(Value.kForward);
+        }
     }
     
     /**
