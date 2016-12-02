@@ -17,6 +17,8 @@ import org.usfirst.frc.team3316.robot.commands.Ejection;
 import org.usfirst.frc.team3316.robot.commands.Open;
 import org.usfirst.frc.team3316.robot.commands.RollIn;
 import org.usfirst.frc.team3316.robot.commands.RollOut;
+import org.usfirst.frc.team3316.robot.commands.Toggle;
+import org.usfirst.frc.team3316.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3316.robot.subsystems.Gripper;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -32,6 +34,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot {
 
 	public static final Gripper gripper = new Gripper();
+	public static final Drivetrain drivetrain = new Drivetrain();
 	public static OI oi;
 
     Command autonomousCommand;
@@ -78,15 +81,12 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        if(oi.aBtn.get()){
-        	if(gripper.isPressed()){
-        		new Collection().start();
-        	}
-        	else{
-        		new Ejection().start();
-        	}
+        if (oi.aBtn.get()) {
+        	(new Toggle()).start();
         }
-
+        
+        SmartDashboard.putBoolean("Button", gripper.isPressed());
+        SmartDashboard.putNumber("Button Voltage", gripper.getSwitchVoltage());
     }
     
     /**

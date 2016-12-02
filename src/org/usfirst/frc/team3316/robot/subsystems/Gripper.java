@@ -24,8 +24,8 @@ public class Gripper extends Subsystem {
 	public Gripper()
 	{
 		ds = new DoubleSolenoid(RobotMap.OPEN_SELONID, RobotMap.CLOSE_SELONID);
-    	rollerGripper = new VictorSP(RobotMap.ROLLER_GRIPPER);
-    	button = new AnalogInput(RobotMap.SWITCH);
+    	rollerGripper = new VictorSP(RobotMap.ROLLER_GRIPPER_MOTOR);
+    	button = new AnalogInput(RobotMap.ROLLER_GRIPPER_SWITCH);
 	}
 	
 
@@ -48,9 +48,12 @@ public class Gripper extends Subsystem {
     }
     public boolean isPressed()
     {
-    	return button.getAverageVoltage() >= 2500;
+    	return button.getAverageVoltage() >= 2.5;
     }
-    
+    public double getSwitchVoltage()
+    {
+    	return button.getAverageVoltage();
+    }
     
 }
 

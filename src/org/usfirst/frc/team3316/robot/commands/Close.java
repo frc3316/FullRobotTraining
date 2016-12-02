@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Close extends Command {
 
     public Close() {
-        
+    	requires(Robot.gripper);
     }
 
     // Called just before this Command runs the first time

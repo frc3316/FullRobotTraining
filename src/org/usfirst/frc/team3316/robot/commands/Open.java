@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Open extends Command {
 
     public Open() {
+    	requires(Robot.gripper);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
