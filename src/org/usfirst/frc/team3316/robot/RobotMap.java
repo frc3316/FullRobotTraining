@@ -11,7 +11,8 @@ public class RobotMap {
 	public static final int CLOSE_SELONID = 5;
 	// OI
 	public static final int JOYSTICK = 2;
-	public static final int JOYSTICK_BUTTON = 1;
+	public static final int JOYSTICK_BUTTON_A = 1;
+	public static final int JOYSTICK_BUTTON_X = 2;
 	public static final int LEFT_JOYSTICK = 0;
 	public static final int RIGHT_JOYSTICK = 1;
 	// ACTUATORS & SENSORS
@@ -29,7 +30,8 @@ public class RobotMap {
 	public static final double ROLLIN_SPEED = -1.0;
 	public static final double ROLLOUT_SPEED = 1.0;
 	public static final double TIMEOUT_GRIPPER_PISTON = 1.0;
-	public static final double TRANSPORT_SPEED = 1;
+	public static final double TRANSPORT_SPEED = 1.0;
+	public static final int TIME_TO_REACH_SHOOTER = 75;
 	
 	
 }

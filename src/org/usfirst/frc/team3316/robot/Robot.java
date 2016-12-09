@@ -18,6 +18,7 @@ import org.usfirst.frc.team3316.robot.commands.Open;
 import org.usfirst.frc.team3316.robot.commands.RollIn;
 import org.usfirst.frc.team3316.robot.commands.RollOut;
 import org.usfirst.frc.team3316.robot.commands.Toggle;
+import org.usfirst.frc.team3316.robot.commands.TransportBall;
 import org.usfirst.frc.team3316.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3316.robot.subsystems.Gripper;
 import org.usfirst.frc.team3316.robot.subsystems.Transport;
@@ -86,7 +87,10 @@ public class Robot extends IterativeRobot {
         if (oi.aBtn.get()) {
         	(new Toggle()).start();
         }
-        
+        if (oi.xBtn.get())
+        {
+        	new TransportBall().start();
+        }
         SmartDashboard.putBoolean("Button", gripper.isPressed());
         SmartDashboard.putNumber("Button Voltage", gripper.getSwitchVoltage());
     }
