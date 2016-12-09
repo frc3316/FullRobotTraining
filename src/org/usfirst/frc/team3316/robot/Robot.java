@@ -20,6 +20,7 @@ import org.usfirst.frc.team3316.robot.commands.RollOut;
 import org.usfirst.frc.team3316.robot.commands.Toggle;
 import org.usfirst.frc.team3316.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3316.robot.subsystems.Gripper;
+import org.usfirst.frc.team3316.robot.subsystems.Transport;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -35,6 +36,7 @@ public class Robot extends IterativeRobot {
 
 	public static final Gripper gripper = new Gripper();
 	public static final Drivetrain drivetrain = new Drivetrain();
+	public static final Transport transport = new Transport(); 
 	public static OI oi;
 
     Command autonomousCommand;

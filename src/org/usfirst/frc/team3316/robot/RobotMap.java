@@ -23,10 +23,13 @@ public class RobotMap {
 		public static final int RIGHT_MOTOR2 = 2;
 		public static final int LEFT_MOTOR1 = 3;
 		public static final int LEFT_MOTOR2 = 14;
+		// Transport
+		public static final int TRANSPORT_MOTOR = 0;
 	// CONSTANTS
 	public static final double ROLLIN_SPEED = -1.0;
 	public static final double ROLLOUT_SPEED = 1.0;
 	public static final double TIMEOUT_GRIPPER_PISTON = 1.0;
+	public static final double TRANSPORT_SPEED = 1;
 	
 	
 }
