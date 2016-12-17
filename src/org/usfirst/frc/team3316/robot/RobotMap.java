@@ -26,12 +26,24 @@ public class RobotMap {
 		public static final int LEFT_MOTOR2 = 14;
 		// Transport
 		public static final int TRANSPORT_MOTOR = 0;
+		// Flywheel
+		public static final int FLYWHEEL_MOTOR = 1;
+		public static final int HALL_EFFECT = 7;
+		
 	// CONSTANTS
 	public static final double ROLLIN_SPEED = -1.0;
 	public static final double ROLLOUT_SPEED = 1.0;
 	public static final double TIMEOUT_GRIPPER_PISTON = 1.0;
 	public static final double TRANSPORT_SPEED = 1.0;
 	public static final int TIME_TO_REACH_SHOOTER = 75;
+	public static final double FLYWHEEL_SETPOINT = 45.0;
+	public static final double FLYWHEEL_ON_VELOCITY = 0.3;
+	public static final double FLYWHEEL_OFF_VELOCITY = -0.1;
+	// PID CONSTANTS
+	public static final double FLYWHEEL_KP = 0.5;
+	public static final double FLYWHEEL_KI = 0;
+	public static final double FLYWHEEL_KD = 0;
+
 	
 	
 }

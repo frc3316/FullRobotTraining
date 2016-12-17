@@ -1,3 +1,4 @@
+
 package org.usfirst.frc.team3316.robot;
 
 import org.usfirst.frc.team3316.robot.commands.Toggle;
@@ -9,7 +10,6 @@ public class OI
 {
 	public Joystick joystick, rightJoystick, leftJoystick;
 	public JoystickButton aBtn, xBtn;
-
 	public OI()
 	{
 		joystick = new Joystick(RobotMap.JOYSTICK);
