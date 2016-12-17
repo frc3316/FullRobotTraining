@@ -111,6 +111,8 @@ public class Robot extends IterativeRobot
         	flywheelPID.cancel();
         	isFlywheelRunning = false;
         }
+        
+        SmartDashboard.putNumber("flywheelSpeed", flywheel.getRPS());
     }
 
 	/**
