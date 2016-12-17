@@ -25,10 +25,10 @@ public class RobotMap {
 		public static final int LEFT_MOTOR1 = 3;
 		public static final int LEFT_MOTOR2 = 14;
 		// Transport
-		public static final int TRANSPORT_MOTOR = 0;
+		public static final int TRANSPORT_MOTOR = 1;
 		// Flywheel
-		public static final int FLYWHEEL_MOTOR = 1;
-		public static final int HALL_EFFECT = 7;
+		public static final int FLYWHEEL_MOTOR = 5;
+		public static final int HALL_EFFECT = 8;
 		
 	// CONSTANTS
 	public static final double ROLLIN_SPEED = -1.0;

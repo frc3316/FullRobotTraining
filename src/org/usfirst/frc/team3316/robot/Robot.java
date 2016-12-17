@@ -101,20 +101,15 @@ public class Robot extends IterativeRobot
         }
         SmartDashboard.putBoolean("Button", gripper.isPressed());
         SmartDashboard.putNumber("Button Voltage", gripper.getSwitchVoltage());
-        if(Robot.oi.joystick.getTrigger(Hand.kRight))
-        {
-        	if(!isFlywheelRunning)
-        	{		
+        if(Robot.oi.joystick.getTrigger(Hand.kRight) && isFlywheelRunning == false)
+        {		
         		flywheelPID = new FlywheelPID();
         		flywheelPID.start();
         		isFlywheelRunning = true;
-        	}
-        	else
-        	{
-        		flywheelPID.cancel();
-        		isFlywheelRunning = false;
-        	}
-        		
+        }
+        if(Robot.oi.joystick.getTrigger(Hand.kRight) && isFlywheelRunning == true){
+        	flywheelPID.cancel();
+        	isFlywheelRunning = false;
         }
     }
 
